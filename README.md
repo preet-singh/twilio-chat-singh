@@ -1,26 +1,82 @@
-# EXPRESS BOILERPLATE
+<a href="https://www.twilio.com">
+  <img src="https://static0.twilio.com/marketing/bundles/marketing/img/logos/wordmark-red.svg" alt="Twilio" width="250" />
+</a>
 
-Singh's boilerplate project used for starting new projects.
 
-## SETUP
+# Twilio Chat - Node
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+[![Build Status](https://travis-ci.org/TwilioDevEd/twiliochat-node.svg?branch=master)](https://travis-ci.org/TwilioDevEd/twiliochat-node)
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+Node.js | Express  implementation of Twilio Chat
 
-## SCRIPTS
 
-Start the application `npm start`
+## Local Development
 
-Start nodemon for the application `npm run dev`
+1. First clone this repository and `cd` into its directory:
+   ```bash
+   git clone https://github.com/TwilioDevEd/twiliochat-node.git \
+   cd twiliochat-node
+   ```
 
-Run the tests `npm test`
+1. Install project's dependencies:
 
-## DEPLOYING
+    ```bash
+    npm install
+    ```
+1. Copy the sample configuration file and edit it to match your configuration.
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+   ```bash
+   cp .env.example .env
+   ```
+
+  You can find your `TWILIO_ACCOUNT_SID` in your
+  [Twilio Account Settings](//www.twilio.com/console).
+
+  For `TWILIO_API_KEY` and `TWILIO_API_SECRET` you need to go to
+  [API Keys](//www.twilio.com/console/dev-tools/api-keys) in the console. There
+  youl'll be able to create a new API key obtaining the two required values.
+  
+  For `TWILIO_CHAT_SERVICE_SID` you can go to the [Programmable Chat dashboard](//www.twilio.com/console/chat/dashboard),
+  where you must create a Chat Messaging Service. When the service is created you'll
+  have access to the service's SID.
+
+1. Start the development server on `http://localhost:3000`
+
+    ```bash
+    npm start
+    ```
+
+
+## Expose your localhost to the internet
+
+If you want your chat application to be reachable publicly in the internet, you can use
+a service like [ngrok](//ngrok.com/).
+
+1. Expose the application to the wider Internet
+
+   ```bash
+   ngrok http 3000
+   ```
+
+
+## Run the tests
+
+1. Run backend tests
+
+    ```bash
+    npm test
+    ```
+
+1. Run javascript tests:
+
+   ```bash
+   cd public \
+   npm install \
+   npm test
+   ```
+
+## Meta
+
+* No warranty expressed or implied. Software is as is. Diggity.
+* [MIT License](//www.opensource.org/licenses/mit-license.html)
+* Lovingly crafted by Twilio Developer Education.
